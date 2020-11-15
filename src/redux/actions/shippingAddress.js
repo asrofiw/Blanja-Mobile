@@ -1,5 +1,5 @@
 import http from '../../helpers/http';
-import qs from 'qs';
+import qs from 'querystring';
 
 export default {
   getShippingAddress: (token) => ({

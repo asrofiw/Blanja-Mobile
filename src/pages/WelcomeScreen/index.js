@@ -1,12 +1,16 @@
 import {Button, Text} from 'native-base';
 import React, {Component} from 'react';
-import {View} from 'react-native';
+import {Image, View} from 'react-native';
 import styles from './style';
 
 export class WelcomeScreen extends Component {
   render() {
     return (
       <View style={styles.parent}>
+        <Image
+          source={require('../../assets/images/Blanja-blue.png')}
+          style={styles.img}
+        />
         <Button
           block
           rounded
@@ -20,7 +24,7 @@ export class WelcomeScreen extends Component {
           rounded
           style={styles.btnSignup}
           onPress={() => this.props.navigation.navigate('Signup')}>
-          <Text style={styles.txtSignup}>Signup</Text>
+          <Text style={styles.txtSignup}>Sign up</Text>
         </Button>
       </View>
     );

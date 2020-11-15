@@ -32,7 +32,7 @@ export class Bag extends Component {
           <View>
             <H1 style={styles.title}>My Bag</H1>
           </View>
-          {dataCart.length &&
+          {dataCart.length > 0 &&
             dataCart.map((items) => (
               <View style={styles.card}>
                 <Image style={styles.img} source={noImage} />

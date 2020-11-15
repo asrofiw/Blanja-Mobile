@@ -1,4 +1,4 @@
-import qs from 'qs';
+import qs from 'querystring';
 import http from '../../helpers/http';
 
 export default {

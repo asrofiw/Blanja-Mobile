@@ -3,6 +3,7 @@ import {createStackNavigator} from '@react-navigation/stack';
 
 import Home from '../pages/Home';
 import DetailProduct from '../pages/DetailProduct';
+import NotificationsPage from '../pages/NotificationsPage';
 
 const Stack = createStackNavigator();
 
@@ -23,6 +24,18 @@ export default function HomeStack() {
         }}
         name="DetailProduct"
         component={DetailProduct}
+      />
+      <Stack.Screen
+        options={{
+          headerTitle: 'Notifications',
+          headerTitleAlign: 'center',
+          headerStyle: {
+            backgroundColor: '#f9f9f9',
+            elevation: 0,
+          },
+        }}
+        name="NotificationsPage"
+        component={NotificationsPage}
       />
     </Stack.Navigator>
   );
