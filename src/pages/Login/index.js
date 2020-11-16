@@ -68,7 +68,14 @@ class Login extends Component {
               touched,
             }) => (
               <View>
-                <Item regular floatingLabel style={styles.itemInput}>
+                <Item
+                  regular
+                  floatingLabel
+                  style={
+                    touched.email && errors.email
+                      ? styles.borderErr
+                      : styles.itemInput
+                  }>
                   <Label style={styles.label}>Email</Label>
                   <Input
                     style={styles.input}
@@ -80,7 +87,14 @@ class Login extends Component {
                 <Text style={styles.txtError}>
                   {touched.email && errors.email}
                 </Text>
-                <Item regular floatingLabel style={styles.itemInput}>
+                <Item
+                  regular
+                  floatingLabel
+                  style={
+                    touched.password && errors.password
+                      ? styles.borderErr
+                      : styles.itemInput
+                  }>
                   <Label style={styles.label}>Password</Label>
                   <Input
                     style={styles.input}
@@ -98,7 +112,9 @@ class Login extends Component {
                     dark
                     transparent
                     style={styles.btnForgot}
-                    onPress={() => this.props.navigation.navigate('Login')}>
+                    onPress={() =>
+                      this.props.navigation.navigate('ForgotPassword')
+                    }>
                     <Text style={styles.txtForgot}>Forgot password?</Text>
                     <Icon name="arrow-right" size={15} color="#273AC7" />
                   </Button>

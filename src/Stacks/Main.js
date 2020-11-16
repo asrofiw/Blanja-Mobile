@@ -17,6 +17,7 @@ import ShopStack from './ShopStack';
 import WelcomeScreen from '../pages/WelcomeScreen';
 import Login from '../pages/Login';
 import Signup from '../pages/Signup';
+import ForgotPassword from '../pages/ForgotPassword';
 import Favorite from '../pages/Favorite';
 import {Root} from 'native-base';
 
@@ -25,8 +26,6 @@ const BottomTabs = createBottomTabNavigator();
 
 class App extends Component {
   componentDidMount() {
-    // do stuff while splash screen is shown
-    // After having done stuff (such as async tasks) hide the splash screen
     SplashScreen.hide();
   }
   render() {
@@ -42,6 +41,9 @@ class App extends Component {
               />
               <Stack.Screen
                 options={{
+                  headerBackImage: () => (
+                    <Icon name="chevron-left" size={30} color="black" />
+                  ),
                   headerTitle: false,
                   headerStyle: {elevation: 0, backgroundColor: '#f9f9f9'},
                 }}
@@ -50,11 +52,25 @@ class App extends Component {
               />
               <Stack.Screen
                 options={{
+                  headerBackImage: () => (
+                    <Icon name="chevron-left" size={30} color="black" />
+                  ),
                   headerTitle: false,
                   headerStyle: {elevation: 0, backgroundColor: '#f9f9f9'},
                 }}
                 name="Signup"
                 component={Signup}
+              />
+              <Stack.Screen
+                options={{
+                  headerBackImage: () => (
+                    <Icon name="chevron-left" size={30} color="black" />
+                  ),
+                  headerTitle: false,
+                  headerStyle: {elevation: 0, backgroundColor: '#f9f9f9'},
+                }}
+                name="ForgotPassword"
+                component={ForgotPassword}
               />
             </Stack.Navigator>
           ) : (

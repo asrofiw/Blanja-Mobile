@@ -1,5 +1,6 @@
 import React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 const Stack = createStackNavigator();
 
 import Profile from '../pages/Profile';
@@ -19,6 +20,9 @@ export default function ProfileStack() {
       />
       <Stack.Screen
         options={{
+          headerBackImage: () => (
+            <Icon name="chevron-left" size={30} color="black" />
+          ),
           headerTransparent: true,
           headerTitle: false,
         }}
@@ -27,6 +31,9 @@ export default function ProfileStack() {
       />
       <Stack.Screen
         options={{
+          headerBackImage: () => (
+            <Icon name="chevron-left" size={30} color="black" />
+          ),
           headerTransparent: true,
           headerTitle: false,
         }}
@@ -35,6 +42,9 @@ export default function ProfileStack() {
       />
       <Stack.Screen
         options={{
+          headerBackImage: () => (
+            <Icon name="chevron-left" size={30} color="black" />
+          ),
           headerTitle: 'Adding Shipping Address',
         }}
         name="AddingShippingAddress"
@@ -42,6 +52,9 @@ export default function ProfileStack() {
       />
       <Stack.Screen
         options={{
+          headerBackImage: () => (
+            <Icon name="chevron-left" size={30} color="black" />
+          ),
           headerTitle: 'Change Address',
         }}
         name="ChangeAddress"
@@ -49,6 +62,9 @@ export default function ProfileStack() {
       />
       <Stack.Screen
         options={{
+          headerBackImage: () => (
+            <Icon name="chevron-left" size={30} color="black" />
+          ),
           headerTransparent: true,
           headerTitle: false,
         }}

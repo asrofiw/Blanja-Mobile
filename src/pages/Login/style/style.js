@@ -24,6 +24,18 @@ const styles = StyleSheet.create({
     shadowRadius: 5,
     elevation: 2,
   },
+  borderErr: {
+    borderColor: 'red',
+    backgroundColor: 'white',
+    borderRadius: 5,
+    height: 65,
+    paddingHorizontal: 20,
+    shadowColor: 'black',
+    shadowOffset: {width: 0, height: 10},
+    shadowOpacity: 2,
+    shadowRadius: 5,
+    elevation: 2,
+  },
   label: {
     fontSize: 14,
     color: '#9b9b9b',

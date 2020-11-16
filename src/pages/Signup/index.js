@@ -77,7 +77,14 @@ class Signup extends Component {
               touched,
             }) => (
               <View>
-                <Item regular floatingLabel style={styles.itemInput}>
+                <Item
+                  regular
+                  floatingLabel
+                  style={
+                    touched.name && errors.name
+                      ? styles.borderErr
+                      : styles.itemInput
+                  }>
                   <Label style={styles.label}>Name</Label>
                   <Input
                     style={styles.input}
@@ -89,7 +96,14 @@ class Signup extends Component {
                 <Text style={styles.txtError}>
                   {touched.name && errors.name}
                 </Text>
-                <Item regular floatingLabel style={styles.itemInput}>
+                <Item
+                  regular
+                  floatingLabel
+                  style={
+                    touched.email && errors.email
+                      ? styles.borderErr
+                      : styles.itemInput
+                  }>
                   <Label style={styles.label}>Email</Label>
                   <Input
                     style={styles.input}
@@ -101,7 +115,14 @@ class Signup extends Component {
                 <Text style={styles.txtError}>
                   {touched.email && errors.email}
                 </Text>
-                <Item regular floatingLabel style={styles.itemInput}>
+                <Item
+                  regular
+                  floatingLabel
+                  style={
+                    touched.password && errors.password
+                      ? styles.borderErr
+                      : styles.itemInput
+                  }>
                   <Label style={styles.label}>Password</Label>
                   <Input
                     style={styles.input}

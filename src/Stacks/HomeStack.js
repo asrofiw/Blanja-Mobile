@@ -1,5 +1,6 @@
 import React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
 import Home from '../pages/Home';
 import DetailProduct from '../pages/DetailProduct';
@@ -17,6 +18,9 @@ export default function HomeStack() {
       />
       <Stack.Screen
         options={{
+          headerBackImage: () => (
+            <Icon name="chevron-left" size={30} color="black" />
+          ),
           headerTitle: false,
           headerStyle: {
             backgroundColor: '#f9f9f9',
@@ -27,6 +31,9 @@ export default function HomeStack() {
       />
       <Stack.Screen
         options={{
+          headerBackImage: () => (
+            <Icon name="chevron-left" size={30} color="black" />
+          ),
           headerTitle: 'Notifications',
           headerTitleAlign: 'center',
           headerStyle: {

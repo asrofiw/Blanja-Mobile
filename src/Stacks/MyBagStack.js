@@ -1,5 +1,6 @@
 import React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
 import Bag from '../pages/Bag';
 import Checkout from '../pages/Checkout';
@@ -17,6 +18,9 @@ export default function MyBagStack() {
       />
       <Stack.Screen
         options={{
+          headerBackImage: () => (
+            <Icon name="chevron-left" size={30} color="black" />
+          ),
           headerTitle: 'Checkout',
           headerStyle: {
             backgroundColor: '#f9f9f9',

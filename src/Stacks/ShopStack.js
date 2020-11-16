@@ -1,5 +1,6 @@
 import React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
 import Shop from '../pages/Shop';
 import Catalog from '../pages/Catalog';
@@ -16,6 +17,9 @@ export default function ShopStack() {
       />
       <Stack.Screen
         options={{
+          headerBackImage: () => (
+            <Icon name="chevron-left" size={30} color="black" />
+          ),
           headerTitle: 'Catalog',
           headerTitleAlign: 'center',
           headerStyle: {
