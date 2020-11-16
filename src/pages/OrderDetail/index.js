@@ -28,7 +28,7 @@ export class OrderDetail extends Component {
           <Text style={styles.txtItemCount}>3 items</Text>
           <CardItemOrderDetail
             btnOnPress={() =>
-              this.props.navigation.navigate('DetailProduct', {
+              this.props.navigation.navigate('RatingReview', {
                 id: 1,
               })
             }
@@ -43,7 +43,7 @@ export class OrderDetail extends Component {
           />
           <CardItemOrderDetail
             btnOnPress={() =>
-              this.props.navigation.navigate('DetailProduct', {
+              this.props.navigation.navigate('RatingReview', {
                 id: 1,
               })
             }
@@ -58,7 +58,7 @@ export class OrderDetail extends Component {
           />
           <CardItemOrderDetail
             btnOnPress={() =>
-              this.props.navigation.navigate('DetailProduct', {
+              this.props.navigation.navigate('RatingReview', {
                 id: 1,
               })
             }

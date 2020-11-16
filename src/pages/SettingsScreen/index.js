@@ -15,7 +15,7 @@ import {
 import styles from './style/style';
 
 // Import Image
-import defaultAvatar from '../../assets/images/default-avatar.jpg';
+import defaultAvatar from '../../assets/images/default-avatar.png';
 
 export class SettingsScreen extends Component {
   render() {

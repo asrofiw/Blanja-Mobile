@@ -9,7 +9,7 @@ import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import authAction from '../../redux/actions/auth';
 
 // Import Image
-import defaultAvatar from '../../assets/images/default-avatar.jpg';
+import defaultAvatar from '../../assets/images/default-avatar.png';
 
 class Profile extends Component {
   logout = () => {

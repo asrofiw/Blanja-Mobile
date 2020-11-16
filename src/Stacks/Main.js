@@ -15,6 +15,7 @@ import Login from '../pages/Login';
 import Signup from '../pages/Signup';
 import ForgotPassword from '../pages/ForgotPassword';
 import Search from '../pages/Search';
+import RatingReview from '../pages/Rating&Review';
 
 const Stack = createStackNavigator();
 
@@ -89,6 +90,17 @@ class App extends Component {
                 }}
                 name="Search"
                 component={Search}
+              />
+              <Stack.Screen
+                options={{
+                  headerBackImage: () => (
+                    <Icon name="chevron-left" size={30} color="black" />
+                  ),
+                  headerTitle: false,
+                  headerStyle: {elevation: 0, backgroundColor: '#f9f9f9'},
+                }}
+                name="RatingReview"
+                component={RatingReview}
               />
             </Stack.Navigator>
           )}
