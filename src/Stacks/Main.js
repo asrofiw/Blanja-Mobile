@@ -1,28 +1,22 @@
 import React, {Component} from 'react';
-// import {Button} from 'native-base';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
-import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+import {StyleSheet} from 'react-native';
 import {connect} from 'react-redux';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import SplashScreen from 'react-native-splash-screen';
+import {Root, Button, Item, Input} from 'native-base';
 
-// Import stack screen
-import ProfileStack from './ProfileStack';
-import HomeStack from './HomeStack';
-import MyBagStack from './MyBagStack';
-import ShopStack from './ShopStack';
+import BottomTabs from './BottomTabs';
 
 // Import Pages
 import WelcomeScreen from '../pages/WelcomeScreen';
 import Login from '../pages/Login';
 import Signup from '../pages/Signup';
 import ForgotPassword from '../pages/ForgotPassword';
-import Favorite from '../pages/Favorite';
-import {Root} from 'native-base';
+import Search from '../pages/Search';
 
 const Stack = createStackNavigator();
-const BottomTabs = createBottomTabNavigator();
 
 class App extends Component {
   componentDidMount() {
@@ -74,53 +68,29 @@ class App extends Component {
               />
             </Stack.Navigator>
           ) : (
-            <BottomTabs.Navigator>
-              <BottomTabs.Screen
-                options={{
-                  tabBarIcon: ({size, color, focused}) => (
-                    <Icon name="home-outline" size={size} color={color} />
-                  ),
-                }}
-                name="Home"
-                component={HomeStack}
+            <Stack.Navigator>
+              <Stack.Screen
+                options={{headerShown: false}}
+                name="BottomTabs"
+                component={BottomTabs}
               />
-              <BottomTabs.Screen
+              <Stack.Screen
                 options={{
-                  tabBarIcon: ({size, color, focused}) => (
-                    <Icon name="cart-outline" size={size} color={color} />
+                  headerBackImage: () => (
+                    <Icon name="chevron-left" size={30} color="black" />
                   ),
-                }}
-                name="Shop"
-                component={ShopStack}
-              />
-              <BottomTabs.Screen
-                options={{
-                  tabBarIcon: ({size, color, focused}) => (
-                    <Icon name="shopping-outline" size={size} color={color} />
+                  headerTitle: () => (
+                    <Item rounded style={styles.itemInput}>
+                      <Icon name="magnify" size={25} />
+                      <Input placeholder="Search" />
+                    </Item>
                   ),
+                  headerStyle: {elevation: 0, backgroundColor: '#f9f9f9'},
                 }}
-                name="Bag"
-                component={MyBagStack}
+                name="Search"
+                component={Search}
               />
-              <BottomTabs.Screen
-                options={{
-                  tabBarIcon: ({size, color, focused}) => (
-                    <Icon name="heart-outline" size={size} color={color} />
-                  ),
-                }}
-                name="Favorites"
-                component={Favorite}
-              />
-              <BottomTabs.Screen
-                options={{
-                  tabBarIcon: ({size, color, focused}) => (
-                    <Icon name="account" size={size} color={color} />
-                  ),
-                }}
-                name="Profile"
-                component={ProfileStack}
-              />
-            </BottomTabs.Navigator>
+            </Stack.Navigator>
           )}
         </NavigationContainer>
       </Root>
@@ -128,13 +98,28 @@ class App extends Component {
   }
 }
 
-// const SearchButton = () => {
-//   return (
-//     <Button transparent>
-//       <Icon name="magnify" size={30} />
-//     </Button>
-//   );
-// };
+const SearchButton = () => {
+  return (
+    <Button transparent>
+      <Icon name="magnify" size={30} />
+    </Button>
+  );
+};
+
+const styles = StyleSheet.create({
+  itemInput: {
+    height: 40,
+    width: '100%',
+    marginRight: 10,
+    paddingHorizontal: 20,
+    backgroundColor: 'white',
+    shadowColor: 'black',
+    shadowOffset: {width: 10, height: 10},
+    shadowOpacity: 2,
+    shadowRadius: 5,
+    elevation: 2,
+  },
+});
 
 const mapStateToProps = (state) => ({auth: state.auth});
 

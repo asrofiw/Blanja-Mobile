@@ -51,6 +51,11 @@ const style = StyleSheet.create({
     lineHeight: 16,
     marginBottom: 10,
   },
+  txtTitleLogout: {
+    fontSize: 16,
+    fontWeight: 'bold',
+    lineHeight: 16,
+  },
   txtChild: {
     fontSize: 12,
     lineHeight: 12,

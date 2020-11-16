@@ -9,6 +9,7 @@ import ShippingAddress from '../pages/ShippingAddress';
 import AddingShippingAddress from '../pages/AddingShippingAddress';
 import ChangeAddress from '../pages/ChangeAddress';
 import SettingsScreen from '../pages/SettingsScreen';
+import OrderDetail from '../pages/OrderDetail';
 
 export default function ProfileStack() {
   return (
@@ -28,6 +29,18 @@ export default function ProfileStack() {
         }}
         name="MyOrders"
         component={MyOrders}
+      />
+      <Stack.Screen
+        options={{
+          headerBackImage: () => (
+            <Icon name="chevron-left" size={30} color="black" />
+          ),
+          headerTitle: 'Order Details',
+          headerTitleAlign: 'center',
+          headerStyle: {backgroundColor: '#f9f9f9'},
+        }}
+        name="OrderDetail"
+        component={OrderDetail}
       />
       <Stack.Screen
         options={{

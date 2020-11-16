@@ -74,7 +74,7 @@ class Profile extends Component {
             style={styles.btn}
             onPress={() => this.props.logout()}>
             <View>
-              <Text style={styles.txtTitle}>Logout</Text>
+              <Text style={styles.txtTitleLogout}>Logout</Text>
             </View>
             <View>
               <Icon name="chevron-right" color="#9B9B9B" size={25} />

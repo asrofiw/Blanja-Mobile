@@ -1,5 +1,7 @@
 import React from 'react';
+import {Button} from 'native-base';
 import {createStackNavigator} from '@react-navigation/stack';
+import {useNavigation} from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
 import Bag from '../pages/Bag';
@@ -9,6 +11,8 @@ import SuccessScreen from '../pages/SuccessScreen';
 const Stack = createStackNavigator();
 
 export default function MyBagStack() {
+  const navigation = useNavigation();
+
   return (
     <Stack.Navigator>
       <Stack.Screen
@@ -20,6 +24,11 @@ export default function MyBagStack() {
         options={{
           headerBackImage: () => (
             <Icon name="chevron-left" size={30} color="black" />
+          ),
+          headerRight: () => (
+            <Button transparent onPress={() => navigation.navigate('Search')}>
+              <Icon name="magnify" size={30} />
+            </Button>
           ),
           headerTitle: 'Checkout',
           headerStyle: {
@@ -39,3 +48,11 @@ export default function MyBagStack() {
     </Stack.Navigator>
   );
 }
+
+const SearchButton = () => {
+  return (
+    <Button transparent>
+      <Icon name="magnify" size={30} />
+    </Button>
+  );
+};
