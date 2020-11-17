@@ -4,13 +4,17 @@ import {Alert, Image, ScrollView} from 'react-native';
 import styles from './style/style';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import {connect} from 'react-redux';
+// import Animated from 'react-native-reanimated';
+import BottomSheet from 'reanimated-bottom-sheet';
 
 // Import Action
 import itemsAction from '../../redux/actions/items';
 import cartAction from '../../redux/actions/cart';
 
-// Import Component Card Product
+// Import Component
 import CardProduct from '../../Components/CardProduct';
+import SelectSize from '../../Components/BottomSheets/SelectSize';
+import SelectColor from '../../Components/BottomSheets/SelectColor';
 
 // Import default image product
 import noImg from '../../assets/images/no_img.png';
@@ -24,6 +28,17 @@ export class DetailProduct extends Component {
       isSuccess: false,
     };
   }
+
+  selectSize = React.createRef();
+  selectColor = React.createRef();
+
+  header = () => (
+    <View style={styles.header}>
+      <View style={styles.panelHeader}>
+        <View style={styles.panelHandle} />
+      </View>
+    </View>
+  );
 
   async componentDidMount() {
     const {id} = this.props.route.params;
@@ -58,17 +73,37 @@ export class DetailProduct extends Component {
     const {data, dataDetail, isLoading, isError, alertMsg} = this.props.items;
     return (
       <Container style={styles.parent}>
+        <BottomSheet
+          ref={this.selectSize}
+          snapPoints={[-50, 200]}
+          initialSnap={0}
+          renderContent={SelectSize}
+          renderHeader={this.header}
+          enabledInnerScrolling={false}
+        />
+        <BottomSheet
+          ref={this.selectColor}
+          snapPoints={[-50, 200]}
+          initialSnap={0}
+          renderContent={SelectColor}
+          renderHeader={this.header}
+          enabledInnerScrolling={false}
+        />
         <Content>
           <Image
             style={styles.imgProduct}
             source={!dataDetail.url ? noImg : {uri: dataDetail.url[0]}}
           />
           <View style={styles.wrapperBtn}>
-            <Button style={styles.btn}>
+            <Button
+              style={styles.btn}
+              onPress={() => this.selectSize.current.snapTo(1)}>
               <Text style={styles.txtBtn}>Size</Text>
               <Icon name="chevron-down" size={20} />
             </Button>
-            <Button style={styles.btn}>
+            <Button
+              style={styles.btn}
+              onPress={() => this.selectColor.current.snapTo(1)}>
               <Text style={styles.txtBtn}>Color</Text>
               <Icon name="chevron-down" size={20} />
             </Button>

@@ -46,4 +46,21 @@ export default StyleSheet.create({
     paddingTop: 20,
     paddingHorizontal: 10,
   },
+  header: {
+    backgroundColor: '#f9f9f9',
+    shadowColor: '#000000',
+    paddingTop: 10,
+    borderTopLeftRadius: 35,
+    borderTopRightRadius: 35,
+  },
+  panelHeader: {
+    alignItems: 'center',
+  },
+  panelHandle: {
+    width: 60,
+    height: 6,
+    borderRadius: 4,
+    backgroundColor: '#9b9b9b',
+    marginBottom: 10,
+  },
 });

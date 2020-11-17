@@ -4,8 +4,10 @@ const styles = StyleSheet.create({
   parent: {
     flex: 1,
     backgroundColor: '#f9f9f9',
-    paddingHorizontal: 20,
-    paddingTop: 70,
+  },
+  body: {
+    marginTop: 20,
+    marginHorizontal: 10,
   },
   title: {
     fontSize: 34,
@@ -58,6 +60,23 @@ const styles = StyleSheet.create({
   },
   txtBtn: {
     textTransform: 'capitalize',
+  },
+  header: {
+    backgroundColor: '#f9f9f9',
+    shadowColor: '#000000',
+    paddingTop: 10,
+    borderTopLeftRadius: 35,
+    borderTopRightRadius: 35,
+  },
+  panelHeader: {
+    alignItems: 'center',
+  },
+  panelHandle: {
+    width: 60,
+    height: 6,
+    borderRadius: 4,
+    backgroundColor: '#9b9b9b',
+    marginBottom: 10,
   },
 });
 

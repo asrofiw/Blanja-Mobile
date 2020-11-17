@@ -3,14 +3,36 @@ import {Button, Content, Text, View} from 'native-base';
 import {} from 'react-native';
 import styles from './style';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+// import Animated from 'react-native-reanimated';
+import BottomSheet from 'reanimated-bottom-sheet';
+
+// Import Component
+import WriteReview from '../../Components/BottomSheets/WriteReview';
 
 import CardReviews from '../../Components/CardReviews';
 import avaDefault from '../../assets/images/default-avatar.png';
 
 export class RatingReview extends Component {
+  writeReview = React.createRef();
+
+  header = () => (
+    <View style={styles.header}>
+      <View style={styles.panelHeader}>
+        <View style={styles.panelHandle} />
+      </View>
+    </View>
+  );
   render() {
     return (
       <View style={styles.parent}>
+        <BottomSheet
+          ref={this.writeReview}
+          snapPoints={[-50, 500]}
+          initialSnap={0}
+          renderContent={WriteReview}
+          renderHeader={this.header}
+          enabledInnerScrolling={false}
+        />
         <Content>
           <View style={styles.body}>
             <Text style={styles.title}>Rating&Review</Text>
@@ -124,7 +146,10 @@ export class RatingReview extends Component {
           </View>
         </Content>
         <View style={styles.footer}>
-          <Button rounded style={styles.btnFooter}>
+          <Button
+            rounded
+            style={styles.btnFooter}
+            onPress={() => this.writeReview.current.snapTo(1)}>
             <Icon name="pencil" size={15} color="#ffffff" />
             <Text style={styles.txtFooter}>Write a review</Text>
           </Button>

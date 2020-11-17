@@ -3,15 +3,28 @@ import {Text, View} from 'react-native';
 import styles from './style';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import {Button, Content} from 'native-base';
+// import Animated from 'react-native-reanimated';
+import BottomSheet from 'reanimated-bottom-sheet';
 
-// Import component Card Product
+// Import component
 import CardCatalogGrid from '../../Components/CardCatalogGrid';
 import CardCatalogList from '../../Components/CardCatalogList';
+import SortBy from '../../Components/BottomSheets/SortBy';
 
 // Import default image product
 import noImg from '../../assets/images/no_img.png';
 
 export class Catalog extends Component {
+  sheetRef = React.createRef();
+
+  header = () => (
+    <View style={styles.header}>
+      <View style={styles.panelHeader}>
+        <View style={styles.panelHandle} />
+      </View>
+    </View>
+  );
+
   state = {
     isGrid: true,
     isList: false,
@@ -28,13 +41,24 @@ export class Catalog extends Component {
 
     return (
       <View style={styles.parent}>
+        <BottomSheet
+          ref={this.sheetRef}
+          snapPoints={[-50, 300]}
+          initialSnap={0}
+          renderContent={SortBy}
+          renderHeader={this.header}
+          enabledInnerScrolling={false}
+        />
         <View style={styles.top}>
           <View style={styles.topInside}>
             <Button transparent style={styles.btn}>
               <Icon name="filter-variant" size={20} color="black" />
               <Text style={styles.txt}> Filters </Text>
             </Button>
-            <Button transparent style={styles.btn}>
+            <Button
+              transparent
+              style={styles.btn}
+              onPress={() => this.sheetRef.current.snapTo(1)}>
               <Icon name="sort" size={20} color="black" />
               <Text style={styles.txt}> Sort </Text>
             </Button>

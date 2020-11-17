@@ -78,8 +78,8 @@ export default function ProfileStack() {
           headerBackImage: () => (
             <Icon name="chevron-left" size={30} color="black" />
           ),
-          headerTransparent: true,
           headerTitle: false,
+          headerStyle: {backgroundColor: '#f9f9f9', elevation: 0},
         }}
         name="SettingsScreen"
         component={SettingsScreen}

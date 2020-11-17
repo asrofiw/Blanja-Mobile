@@ -113,6 +113,23 @@ const styles = StyleSheet.create({
     width: '100%',
     backgroundColor: '#273AC7',
   },
+  header: {
+    backgroundColor: '#f9f9f9',
+    shadowColor: '#000000',
+    paddingTop: 10,
+    borderTopLeftRadius: 35,
+    borderTopRightRadius: 35,
+  },
+  panelHeader: {
+    alignItems: 'center',
+  },
+  panelHandle: {
+    width: 60,
+    height: 6,
+    borderRadius: 4,
+    backgroundColor: '#9b9b9b',
+    marginBottom: 10,
+  },
 });
 
 export default styles;
