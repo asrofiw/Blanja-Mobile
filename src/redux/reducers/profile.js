@@ -2,7 +2,6 @@ const initialStateProfile = {
   isSuccess: false,
   isLoading: false,
   isError: false,
-  fetchCount: 0,
   alertMsg: '',
   statusMsg: '',
   isUpdate: false,
@@ -36,7 +35,6 @@ export default (state = initialStateProfile, action) => {
         isLoading: false,
         isSuccess: true,
         statusMsg: 'Succes',
-        fetchCount: state.fetchCount + 1,
         alertMsg: action.payload.data.message,
         dataProfile: action.payload.data.data[0],
       };
@@ -70,6 +68,7 @@ export default (state = initialStateProfile, action) => {
     case 'CLEAR_MESSAGE': {
       return {
         ...state,
+        isLoading: false,
         isUpdate: false,
         isSuccess: false,
         isError: false,

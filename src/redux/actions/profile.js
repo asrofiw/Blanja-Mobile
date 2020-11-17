@@ -1,3 +1,4 @@
+import qs from 'querystring';
 import http from '../../helpers/http';
 
 export default {
@@ -6,6 +7,10 @@ export default {
     payload: http(token).get('private/customer/profile'),
   }),
   updateProfile: (token, data) => ({
+    type: 'UPDATE_PROFILE',
+    payload: http(token).patch('private/customer/profile', qs.stringify(data)),
+  }),
+  updatePicture: (token, data) => ({
     type: 'UPDATE_PROFILE',
     payload: http(token).patch('private/customer/profile', data),
   }),

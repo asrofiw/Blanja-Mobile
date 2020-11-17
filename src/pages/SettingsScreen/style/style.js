@@ -19,7 +19,6 @@ const styles = StyleSheet.create({
     fontSize: 16,
     lineHeight: 16,
     fontWeight: 'bold',
-    marginBottom: 20,
   },
   imgWrapper: {
     justifyContent: 'center',
@@ -36,7 +35,26 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     height: 65,
     paddingHorizontal: 20,
+    marginBottom: 2,
+  },
+  itemInputPass: {
+    backgroundColor: 'white',
+    borderRadius: 5,
+    height: 65,
+    paddingHorizontal: 20,
     marginBottom: 20,
+  },
+  borderErr: {
+    borderColor: 'red',
+    backgroundColor: 'white',
+    borderRadius: 5,
+    height: 65,
+    paddingHorizontal: 20,
+    shadowColor: 'black',
+    shadowOffset: {width: 0, height: 10},
+    shadowOpacity: 2,
+    shadowRadius: 5,
+    elevation: 2,
   },
   label: {
     fontSize: 14,
@@ -61,6 +79,14 @@ const styles = StyleSheet.create({
   txtBtn: {
     textTransform: 'capitalize',
   },
+  txtError: {
+    fontSize: 12,
+    color: 'red',
+    marginTop: 2,
+    marginBottom: 5,
+    textAlign: 'right',
+    marginLeft: 5,
+  },
   header: {
     backgroundColor: '#f9f9f9',
     shadowColor: '#000000',
@@ -77,6 +103,10 @@ const styles = StyleSheet.create({
     borderRadius: 4,
     backgroundColor: '#9b9b9b',
     marginBottom: 10,
+  },
+  toast: {
+    marginVertical: 20,
+    marginHorizontal: 10,
   },
 });
 

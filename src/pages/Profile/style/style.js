@@ -13,18 +13,37 @@ const style = StyleSheet.create({
     marginBottom: 24,
     paddingHorizontal: 20,
   },
-  img: {
+  headProfile: {
+    height: 70,
+    paddingHorizontal: 20,
+    flexDirection: 'row',
+    justifyContent: 'flex-start',
+    alignItems: 'center',
+    marginBottom: 30,
+  },
+  wrapperImg: {
     height: 64,
     width: 64,
     borderRadius: 50,
     marginRight: 20,
   },
-  btnProfile: {
-    height: 70,
-    paddingHorizontal: 20,
-    justifyContent: 'flex-start',
+  img: {
+    height: 64,
+    width: 64,
+    borderRadius: 50,
+    backgroundColor: 'blue',
+    position: 'relative',
+  },
+  icon: {
+    position: 'absolute',
+    bottom: 0,
+    right: 0,
+    height: 20,
+    width: 20,
+    borderRadius: 50,
+    backgroundColor: 'white',
+    justifyContent: 'center',
     alignItems: 'center',
-    marginBottom: 30,
   },
   txtName: {
     fontSize: 18,
@@ -33,8 +52,7 @@ const style = StyleSheet.create({
   },
   txtEmail: {
     fontSize: 14,
-    lineHeight: 20,
-    color: '#9B9B9B',
+    color: '#9b9b9b',
   },
   btn: {
     flex: 2,
@@ -60,6 +78,53 @@ const style = StyleSheet.create({
     fontSize: 12,
     lineHeight: 12,
     color: '#9B9B9B',
+  },
+  toast: {
+    marginVertical: 20,
+    marginHorizontal: 10,
+  },
+  centeredView: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  modalView: {
+    width: '80%',
+    margin: 20,
+    backgroundColor: 'white',
+    borderRadius: 10,
+    alignItems: 'center',
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+    elevation: 5,
+  },
+  openButton: {
+    backgroundColor: '#F194FF',
+    borderRadius: 20,
+    padding: 10,
+    elevation: 2,
+  },
+  textStyle: {
+    color: 'white',
+    fontWeight: 'bold',
+    textAlign: 'center',
+  },
+  modalText: {
+    marginBottom: 15,
+    textAlign: 'center',
+  },
+  btnOnModal: {
+    borderBottomWidth: 0.5,
+    borderBottomColor: '#9b9b9b',
+  },
+  txtBtnModal: {
+    textTransform: 'capitalize',
+    fontSize: 14,
   },
 });
 
