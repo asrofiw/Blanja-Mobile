@@ -7,7 +7,7 @@ export default {
   }),
   getDataNewest: () => ({
     type: 'GET_DATA_NEWEST',
-    payload: http().get('public/items?limit=5&sort[update_at]=desc'),
+    payload: http().get('public/items?limit=5&sort[updated_at]=desc'),
   }),
   getDataDetail: (id) => ({
     type: 'GET_DATA_DETAIL',

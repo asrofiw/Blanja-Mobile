@@ -6,7 +6,7 @@ import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
 const CardProduct = (props) => {
   return (
-    <Card transparent style={styles.card}>
+    <Card transparent key={props.keyItem} style={styles.card}>
       <CardItem button onPress={props.btnOnPress} style={styles.cardItem}>
         <Body>
           <Image style={styles.img} source={props.img} />

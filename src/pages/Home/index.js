@@ -1,9 +1,10 @@
 import React, {Component} from 'react';
-import {ScrollView, Image} from 'react-native';
+import {ScrollView, Image, FlatList} from 'react-native';
 import {Button, Container, Content, H1, Spinner, Text, View} from 'native-base';
 import {connect} from 'react-redux';
 import styles from './style/style';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+import {API_URL} from '@env';
 
 // import Action
 import itemsAction from '../../redux/actions/items';
@@ -54,30 +55,28 @@ export class Home extends Component {
               </Button>
             </View>
           </View>
-          <ScrollView horizontal>
-            {!isLoading &&
-              !isError &&
-              dataNewest.length !== 0 &&
-              dataNewest.map((items) => (
-                <CardProduct
-                  btnOnPress={() =>
-                    this.props.navigation.navigate('DetailProduct', {
-                      id: items.id,
-                    })
-                  }
-                  img={noImg}
-                  subCategory={items.sub_category}
-                  productName={items.name}
-                  price={new Intl.NumberFormat('id-ID', {
-                    style: 'currency',
-                    currency: 'IDR',
-                    maximumSignificantDigits: 1,
-                  }).format(items.price)}
-                />
-              ))}
-            {isLoading && !isError && <Text>Loading</Text>}
-            {isError && alertMsg !== '' && <Text>{alertMsg}</Text>}
-          </ScrollView>
+          <FlatList
+            horizontal 
+            data={dataNewest} 
+            renderItem={({item}) => 
+            <CardProduct
+              keyItem={item.id}
+              btnOnPress={() =>
+                this.props.navigation.navigate('DetailProduct', {
+                  id: item.id,
+                })
+              }
+              img={item.image? {uri: `${API_URL}${item.image}`} : `${noImg}`}
+              subCategory={item.sub_category}
+              productName={item.name}
+              price={new Intl.NumberFormat('id-ID', {
+                style: 'currency',
+                currency: 'IDR',
+                maximumSignificantDigits: 1,
+              }).format(item.price)}
+            />}
+            keyExtractor={(item) => item.id.toString()}
+          />
           <View style={styles.title}>
             <View>
               <H1 style={styles.titleH1}>Popular</H1>
@@ -91,30 +90,29 @@ export class Home extends Component {
               </Button>
             </View>
           </View>
-          <ScrollView horizontal>
-            {!isLoading &&
-              !isError &&
-              data.length !== 0 &&
-              data.map((items) => (
-                <CardProduct
-                  btnOnPress={() =>
-                    this.props.navigation.navigate('DetailProduct', {
-                      id: items.id,
-                    })
-                  }
-                  img={noImg}
-                  subCategory={items.sub_category}
-                  productName={items.name}
-                  price={new Intl.NumberFormat('id-ID', {
-                    style: 'currency',
-                    currency: 'IDR',
-                    maximumSignificantDigits: 1,
-                  }).format(items.price)}
-                />
-              ))}
-            {isLoading && !isError && <Text>Loading</Text>}
-            {isError && alertMsg !== '' && <Text>{alertMsg}</Text>}
-          </ScrollView>
+          <FlatList
+            horizontal
+            showsHorizontalScrollIndicator={false}
+            data={data} 
+            renderItem={({item}) => 
+            <CardProduct
+              keyItem={item.id}
+              btnOnPress={() =>
+                this.props.navigation.navigate('DetailProduct', {
+                  id: item.id,
+                })
+              }
+              img={item.image? {uri: `${API_URL}${item.image}`} : `${noImg}`}
+              subCategory={item.sub_category}
+              productName={item.name}
+              price={new Intl.NumberFormat('id-ID', {
+                style: 'currency',
+                currency: 'IDR',
+                maximumSignificantDigits: 3,
+              }).format(item.price)}
+            />}
+            keyExtractor={(item) => item.id.toString()}
+          />
         </Content>
       </Container>
     );

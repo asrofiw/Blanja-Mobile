@@ -4,6 +4,7 @@ import {Alert, Image, ScrollView} from 'react-native';
 import styles from './style/style';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import {connect} from 'react-redux';
+import {API_URL} from '@env';
 // import Animated from 'react-native-reanimated';
 import BottomSheet from 'reanimated-bottom-sheet';
 
@@ -71,6 +72,7 @@ export class DetailProduct extends Component {
 
   render() {
     const {data, dataDetail, isLoading, isError, alertMsg} = this.props.items;
+    console.log(dataDetail)
     return (
       <Container style={styles.parent}>
         <BottomSheet
@@ -92,7 +94,7 @@ export class DetailProduct extends Component {
         <Content>
           <Image
             style={styles.imgProduct}
-            source={!dataDetail.url ? noImg : {uri: dataDetail.url[0]}}
+            source={!dataDetail.url ? noImg : {uri: `${API_URL}${dataDetail.url[0]}`}}
           />
           <View style={styles.wrapperBtn}>
             <Button
@@ -156,7 +158,7 @@ export class DetailProduct extends Component {
                       id: items.id,
                     })
                   }
-                  img={noImg}
+                  img={items.image? {uri: `${API_URL}${items.image}`} : `${noImg}`}
                   subCategory={items.sub_category}
                   productName={items.name}
                   price={new Intl.NumberFormat('id-ID', {
