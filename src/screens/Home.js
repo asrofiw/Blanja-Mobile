@@ -38,7 +38,7 @@ export class Home extends Component {
           <Button
             transparent
             style={styles.btnImg}
-            onPress={() => this.props.navigation.navigate('NotificationsPage')}>
+            onPress={() => this.props.navigation.navigate('NotificationPage')}>
             <Icon name="bell-outline" size={35} color="#ffffff" />
           </Button>
           <View style={styles.title}>

@@ -21,7 +21,8 @@ export default function HomeStack() {
           headerBackImage: () => (
             <Icon name="chevron-left" size={30} color="black" />
           ),
-          headerTitle: false,
+          headerTitle: 'Detail Product',
+          headerTitleAlign: 'center',
           headerStyle: {
             backgroundColor: '#f9f9f9',
           },

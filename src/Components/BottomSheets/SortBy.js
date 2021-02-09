@@ -1,7 +1,6 @@
 import React from 'react';
-import {} from 'react-native';
+import { StyleSheet } from 'react-native';
 import {View, Text, Button} from 'native-base';
-import styles from './style';
 
 const SortBy = () => {
   return (
@@ -27,3 +26,33 @@ const SortBy = () => {
 };
 
 export default SortBy;
+
+const styles = StyleSheet.create({
+  parent: {
+    backgroundColor: '#f9f9f9',
+    height: 500,
+    paddingVertical: 10,
+  },
+  title: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    textAlign: 'center',
+    marginBottom: 20,
+  },
+  btn: {
+    justifyContent: 'flex-start',
+    backgroundColor: '#273AC7',
+  },
+  btnTransparent: {
+    backgroundColor: '#f9f9f9',
+    justifyContent: 'flex-start',
+  },
+  txt: {
+    textTransform: 'capitalize',
+  },
+  txtTransparent: {
+    textTransform: 'capitalize',
+    color: 'black',
+    fontWeight: 'normal',
+  },
+})

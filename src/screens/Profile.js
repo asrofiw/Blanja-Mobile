@@ -260,7 +260,7 @@ const mapDispatchToProps = {
 
 export default connect(mapStateToProps, mapDispatchToProps)(Profile);
 
-const style = StyleSheet.create({
+const styles = StyleSheet.create({
   parent: {
     flex: 1,
     backgroundColor: '#f9f9f9',

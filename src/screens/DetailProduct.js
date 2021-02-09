@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {Text, View, Container, Content, Footer, H1, Button} from 'native-base';
-import {Alert, Image, ScrollView, StyleSheet} from 'react-native';
+import {Alert, Image, StyleSheet, FlatList} from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import {connect} from 'react-redux';
 import {API_URL} from '@env';
@@ -130,7 +130,7 @@ export class DetailProduct extends Component {
                 {new Intl.NumberFormat('id-ID', {
                   style: 'currency',
                   currency: 'IDR',
-                  maximumSignificantDigits: 1,
+                  maximumSignificantDigits: 3,
                 }).format(dataDetail.price)}
               </Text>
             </View>
@@ -146,30 +146,29 @@ export class DetailProduct extends Component {
               <Text style={styles.txtTitle}>12 items</Text>
             </View>
           </View>
-          <ScrollView horizontal style={styles.scrollView}>
-            {!isLoading &&
-              !isError &&
-              data.length !== 0 &&
-              data.map((items) => (
-                <CardProduct
-                  btnOnPress={() =>
-                    this.props.navigation.replace('DetailProduct', {
-                      id: items.id,
-                    })
-                  }
-                  img={items.image? {uri: `${API_URL}${items.image}`} : `${noImg}`}
-                  subCategory={items.sub_category}
-                  productName={items.name}
-                  price={new Intl.NumberFormat('id-ID', {
-                    style: 'currency',
-                    currency: 'IDR',
-                    maximumSignificantDigits: 1,
-                  }).format(items.price)}
-                />
-              ))}
-            {isLoading && !isError && <Text>Loading</Text>}
-            {isError && alertMsg !== '' && <Text>{alertMsg}</Text>}
-          </ScrollView>
+          <FlatList
+            style={styles.scrollView}
+            showsHorizontalScrollIndicator={false}
+            horizontal 
+            data={data} 
+            renderItem={({item}) => 
+            <CardProduct
+              btnOnPress={() =>
+                this.props.navigation.replace('DetailProduct', {
+                  id: item.id,
+                })
+              }
+              img={item.image? {uri: `${API_URL}${item.image}`} : `${noImg}`}
+              subCategory={item.sub_category}
+              productName={item.name}
+              price={new Intl.NumberFormat('id-ID', {
+                style: 'currency',
+                currency: 'IDR',
+                maximumSignificantDigits: 3,
+              }).format(item.price)}
+            />}
+            keyExtractor={(item) => item.id.toString()}
+          />
         </Content>
         <Footer style={styles.footer}>
           <Button full rounded style={styles.btnFooter} onPress={this.addCart}>

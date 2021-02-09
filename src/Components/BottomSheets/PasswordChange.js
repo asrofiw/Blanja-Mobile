@@ -1,9 +1,8 @@
 import React from 'react';
-import {TouchableWithoutFeedback, Keyboard} from 'react-native';
+import {TouchableWithoutFeedback, Keyboard, StyleSheet} from 'react-native';
 import {View, Text, H1, Item, Label, Input, Button, Content} from 'native-base';
 import {Formik} from 'formik';
 import * as yup from 'yup';
-import styles from './style';
 
 const formSchema = yup.object({
   oldPassword: yup.string().required('old password required'),
@@ -115,12 +114,78 @@ const PasswordChange = () => {
   );
 };
 
-// const styles = StyleSheet.create({
-//   parent: {
-//     flex: 1,
-//     backgroundColor: 'white',
-//     height: 1000,
-//   },
-// })
-
 export default PasswordChange;
+
+const styles = StyleSheet.create({
+  parent: {
+    backgroundColor: '#f9f9f9',
+    height: 700,
+    padding: 10,
+  },
+  title: {
+    fontWeight: 'bold',
+    fontSize: 18,
+    marginBottom: 18,
+    textAlign: 'center',
+  },
+  txt: {
+    fontSize: 14,
+    textAlign: 'justify',
+    marginBottom: 16,
+  },
+  itemInput: {
+    backgroundColor: 'white',
+    borderRadius: 5,
+    height: 65,
+    paddingHorizontal: 20,
+    borderColor: 'white',
+    shadowColor: 'black',
+    shadowOffset: {width: 0, height: 10},
+    shadowOpacity: 2,
+    shadowRadius: 5,
+    elevation: 2,
+  },
+  label: {
+    fontSize: 14,
+    color: '#9b9b9b',
+    marginHorizontal: 20,
+    top: 10,
+  },
+  input: {
+    fontSize: 16,
+  },
+  btnSave: {
+    backgroundColor: '#273AC7',
+    height: 48,
+    shadowColor: 'black',
+    shadowOffset: {width: 10, height: 10},
+    shadowOpacity: 10,
+    shadowRadius: 5,
+    elevation: 10,
+    marginBottom: 20,
+  },
+  toast: {
+    marginVertical: 20,
+    marginHorizontal: 10,
+  },
+  borderErr: {
+    borderColor: 'red',
+    backgroundColor: 'white',
+    borderRadius: 5,
+    height: 65,
+    paddingHorizontal: 20,
+    shadowColor: 'black',
+    shadowOffset: {width: 0, height: 10},
+    shadowOpacity: 2,
+    shadowRadius: 5,
+    elevation: 2,
+  },
+  txtError: {
+    fontSize: 12,
+    color: 'red',
+    marginTop: 2,
+    marginBottom: 10,
+    textAlign: 'right',
+    marginLeft: 5,
+  },
+})

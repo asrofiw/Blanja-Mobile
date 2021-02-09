@@ -7,6 +7,7 @@ import checkout from './checkout';
 import transaction from './transaction';
 import profile from './profile';
 import shippingAddress from './shippingAddress';
+import subcategory from './subcategory';
 import register from './register';
 
 export default combineReducers({
@@ -17,5 +18,6 @@ export default combineReducers({
   transaction,
   profile,
   shippingAddress,
+  subcategory,
   register,
 });

@@ -1,7 +1,6 @@
 import {Button, Text, View} from 'native-base';
 import React from 'react';
-import {} from 'react-native';
-import styles from './style';
+import { StyleSheet } from 'react-native';
 
 const CardCategory = (props) => {
   return (
@@ -14,3 +13,18 @@ const CardCategory = (props) => {
 };
 
 export default CardCategory;
+
+const styles = StyleSheet.create({
+  btn: {
+    borderBottomColor: 'black',
+    borderBottomWidth: 0.5,
+    justifyContent: 'flex-start',
+    alignItems: 'center',
+    height: 48,
+  },
+  txt: {
+    fontSize: 16,
+    color: 'black',
+    textTransform: 'capitalize',
+  },
+})
